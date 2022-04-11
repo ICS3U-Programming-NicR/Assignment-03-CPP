@@ -21,23 +21,29 @@ int main() {
     std::string userString, letter;
     bool vowel, consonent, space, yLetter, punctuation;
     int index, userStringInt, lengthVar;
+
     // get input with spaces
     cout << "Enter a string of characters, special"\
     "operators(you can also include punctuation).\n";
     getline(cin, userString);
     lengthVar = userString.length();
+
     // convert to character
     char userStringChar[lengthVar + 1];
     strcpy(userStringChar, userString.c_str());
+
     // loops until program is done
     for (index = 0; index < userString.length(); index++) {
         letter = userStringChar[index];
+
         // sees if int
         try {
             userStringInt = std::stoi(letter);
             cout << "The "<< index + 1 << \
             " character ("<< letter <<") is a number\n";
-        } catch (std::invalid_argument) {
+        }
+        catch (std::invalid_argument) {
+
             // boolean variables will output true or false
             vowel = (letter == "a" || letter == "e" || letter == "i" ||\
             letter == "o" || letter == "u" || letter == "A" || letter == "E" ||\
@@ -58,6 +64,7 @@ int main() {
             punctuation = (letter == "," || letter == "." || letter == "?" ||\
             letter == ";" || letter == ":" || letter == "'" || letter == "!" ||\
             letter == ")" || letter == "(" || letter == "\"");
+
             // logic
             if (vowel == true) {
                 cout << "The "<< index + 1 << " character (" << \
